@@ -8,9 +8,11 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
 const geometry =new THREE.BoxGeometry();
-const material = new THREE.MeshBasicMaterial({color:0x001b2c});
+const material = new THREE.MeshBasicMaterial({color:0xffffff});
 const cube = new THREE.Mesh(geometry,material)
 scene.add(cube);
+
+
 
 function animate(){
     requestAnimationFrame(animate)
@@ -19,3 +21,9 @@ function animate(){
     renderer.render(scene,camera)
 }
 animate()
+
+camera.position.z = 10
+const sunGeometry = new THREE.SphereGeometry(1,32,32);
+const sunMaterial = new THREE.MeshBasicMaterial({color:0xffff00})
+const sun = new THREE.Mesh(sunGeometry,sunMaterial)
+scene.add(sun);
